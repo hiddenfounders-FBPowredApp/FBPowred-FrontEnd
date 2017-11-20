@@ -1,0 +1,15 @@
+<form ngNativeValidate (ngSubmit)="register(user)" class="form-signin">
+  <h2 class="form-signin-heading">Register</h2>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input [ngClass]="{'input-has-error': email.invalid && (email.dirty || email.touched), 'input-has-succus':!email.invalid && (email.dirty || email.touched)}" [(ngModel)]="user.email" #email="ngModel" name="email" type="email" email id="inputEmail" class="form-control"
+         placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input [ngClass]="{'input-has-error': password.invalid && (password.dirty || password.touched), 'input-has-succus':!password.invalid && (password.dirty || password.touched)}" pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+         [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
+         id="inputPassword" class="form-control" placeholder="Password" required>
+  <label for="inputPassword" class="sr-only">Confirm password</label>
+  <input [(ngModel)]="user.passwordVerif" #passwordVerif="ngModel" name="passwordVerif" type="password"
+         id="inputConfirmPassword" class="form-control" placeholder="confirm password" required>
+  <p>Le mot de passe doit comporter au moins 1 chiffre, 1 majuscule et 1 symbole</p>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+</form>
