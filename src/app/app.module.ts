@@ -1,12 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 
-import { AppComponent } from './app.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
+import {AppComponent} from './app.component';
+import {RegisterFormComponent} from './register-form/register-form.component';
 import {RoutingAppModule} from "./app.routing";
-import { AuthentificationFormComponent } from './authentification-form/authentification-form.component';
+import {AuthentificationFormComponent} from './authentification-form/authentification-form.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {UserService} from "./services/user.service";
 
 
 @NgModule({
@@ -18,9 +20,13 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     FormsModule,
-    RoutingAppModule
+    RoutingAppModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
